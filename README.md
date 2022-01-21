@@ -1,8 +1,8 @@
+![alt text](./Chappie_To_Do.png)
+
 # Chappie: To Do List with Django and Ajax
-My project from the University of Kurdistan: Internet Engineering. 📋 Simple to-do list where you can add new tasks, mark them as done, or delete them if they are no longer important. 
+My web project from the University of Kurdistan: Internet Engineering. 📋 Simple to-do list where you can add new tasks, or delete them if they are no longer important.
 
-
-# Dockerizing Django with Postgres, Gunicorn, and Nginx
 
 ## Want to learn how to build this?
 
@@ -10,7 +10,7 @@ Check out the [post](https://testdriven.io/dockerizing-django-with-postgres-guni
 
 ## Want to use this project?
 
-### Development
+> Development
 
 Uses the default Django development server.
 
@@ -24,7 +24,7 @@ Uses the default Django development server.
 
     Test it out at [http://localhost:8800](http://localhost:8800). The "app" folder is mounted into the container and your code changes apply automatically.
 
-### Production
+> Production
 
 Uses gunicorn + nginx.
 
@@ -36,3 +36,14 @@ Uses gunicorn + nginx.
     ```
 
     Test it out at [http://localhost:1337](http://localhost:1337). No mounted folders. To apply changes, the image must be re-built.
+
+## To-Do
+- [] Better user interface for homepage
+- [] Add done mark in UI after task done
+- [] Add filter module 
+- [] Add Search module
+- [] Add user registration
+- [] Add Multi language Support
+
+## Licence
+GPLv3
