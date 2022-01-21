@@ -14,8 +14,3 @@ class TodoForm(BootstrapHelperForm, forms.ModelForm):
     def __init__(self, *args, **kwargs):
         request = kwargs.pop('request')
         super().__init__(*args, **kwargs)
-
-#class UserForm(forms.ModelForm):
-#    password = forms.CharField(widget=forms.PasswordInput)
-#    class Meta:
-#        model = User
