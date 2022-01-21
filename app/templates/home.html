@@ -3,11 +3,19 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  <p><a href="{% url 'todo:todo-list' %}">Todo List</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">Log In</a>
-{% endif %}
+        <!-- Header-->
+        <header class="masthead d-flex align-items-center">
+          <div class="container px-4 px-lg-5 text-center" style="margin-top: 100px;">
+
+              {% if user.is_authenticated %}
+              <h1 class="mb-1">✅ Wellcome {{ user.username }}</h1>
+                <p><a class="btn btn-primary btn-xl" href="{% url 'todo:todo-list' %}">Your Todo List</a></p>
+              {% else %}
+                <h1 class="mb-1">🚩 Chappie To Do </h1>
+                <h3 class="mb-5"><em></em></h3>
+                <a class="btn btn-primary btn-xl" href="{% url 'login' %}">Log In</a>
+              {% endif %}
+          </div>
+      </header>
+
 {% endblock %}
