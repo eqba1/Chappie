@@ -6,25 +6,35 @@ from cms.mixins import ModelMixin
 from cms.views import CoreListView
 from .models import Todo
 from .forms import TodoForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+class OwnedMixin(LoginRequiredMixin):
+    def get_queryset(self, *args, **kwargs):
+        return super().get_queryset(*args, **kwargs).filter(
+            owner=self.request.user
+        )
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
 
 
-class TodoList(CoreListView):
+class TodoList(OwnedMixin, CoreListView):
     model = Todo
 
 
-class TodoDetail(AjaxDetailView):
+class TodoDetail(OwnedMixin, AjaxDetailView):
     model = Todo
 
 
-class TodoCreate(AjaxCreateView):
+class TodoCreate(OwnedMixin, AjaxCreateView):
     model = Todo
     form_class = TodoForm
 
 
-class TodoUpdate(AjaxUpdateView):
+class TodoUpdate(OwnedMixin, AjaxUpdateView):
     model = Todo
     form_class = TodoForm
 
 
-class TodoDelete(AjaxDeleteView):
+class TodoDelete(OwnedMixin, AjaxDeleteView):
     model = Todo
